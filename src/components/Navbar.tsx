@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { label: "Projects", path: "/projects", num: "07" },
   { label: "PP", path: "/pp", num: "08" },
   { label: "Tools", path: "/tools", num: "09" },
+  { label: "Let's Talk", path: "/contact", num: "10" },
 ];
 
 export default function Navbar() {
@@ -217,12 +218,12 @@ export default function Navbar() {
           {/* Desktop Call to Action */}
           <div className="hidden lg:block">
             <MagneticButton>
-              <a
-                href="mailto:dk3891315@gmail.com?subject=Project%20Inquiry%20%2F%20Let%27s%20Talk%20-%20Dharmesh%20Thakur&body=Hi%20Dharmesh%2C%0A%0AI%20would%20like%20to%20discuss%20a%20project%20or%20marketing%20strategy%20with%20you.%0A%0ACompany%20%2F%20Brand%3A%20%0AProject%20Scope%3A%20%0AEstimated%20Timeline%3A%20%0A%0AThanks%2C%0A"
+              <Link
+                to="/contact"
                 className="btn-shine-sweep px-5 py-2.5 bg-primary text-[#020408] font-mono text-xs uppercase tracking-widest font-bold rounded-lg transition-transform duration-300 inline-block text-center hover:shadow-[0_0_20px_rgba(212,168,83,0.4)]"
               >
                 Let's Talk
-              </a>
+              </Link>
             </MagneticButton>
           </div>
 
@@ -342,14 +343,14 @@ export default function Navbar() {
               {/* Drawer Footer & Socials */}
               <div className="p-6 border-t border-primary/15 bg-[#020408]/80 space-y-5">
                 {/* CTA Action */}
-                <a
-                  href="mailto:dk3891315@gmail.com?subject=Project%20Inquiry%20%2F%20Hire%20Me%20-%20Dharmesh%20Thakur&body=Hi%20Dharmesh%2C%0A%0AI%20would%20like%20to%20discuss%20a%20project%20or%20marketing%20strategy%20with%20you.%0A%0ACompany%20%2F%20Brand%3A%20%0AProject%20Scope%3A%20%0A%0AThanks%2C%0A"
+                <Link
+                  to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="btn-shine-sweep w-full py-3 bg-primary text-[#020408] font-mono text-xs uppercase tracking-widest font-bold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(212,168,83,0.25)] hover:shadow-[0_0_20px_rgba(212,168,83,0.45)] transition-all"
                 >
                   <Sparkles className="w-4 h-4" />
-                  <span>Start a Project / Hire Me</span>
-                </a>
+                  <span>Start a Project / Let's Talk</span>
+                </Link>
 
                 {/* Direct Contact Info */}
                 <div className="space-y-2 pt-1 font-mono text-xs">

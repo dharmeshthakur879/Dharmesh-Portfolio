@@ -26,6 +26,7 @@ export default function Footer() {
     { label: "Project Previews (PP)", path: "/pp" },
     { label: "Skills & Stack", path: "/skills" },
     { label: "Download Resume (PDF)", path: "/Dharmesh_Thakur_Resume.pdf", isExternal: true },
+    { label: "Let's Talk & Inquiries", path: "/contact" },
   ];
 
   return (
@@ -173,15 +174,15 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Let's Talk Pill Button directly triggering mail inquiry */}
+              {/* Let's Talk Pill Button navigating directly to Contact form */}
               <div className="mt-8">
                 <MagneticButton>
-                  <a
-                    href="mailto:dk3891315@gmail.com?subject=Project%20Inquiry%20%2F%20Let%27s%20Talk%20-%20Dharmesh%20Thakur&body=Hi%20Dharmesh%2C%0A%0AI%20would%20like%20to%20discuss%20a%20digital%20marketing%20strategy%20or%20project%20with%20you.%0A%0ACompany%20%2F%20Brand%3A%20%0AProject%20Scope%3A%20%0AEstimated%20Timeline%3A%20%0A%0AThanks%2C%0A"
+                  <Link
+                    to="/contact"
                     className="inline-block px-10 py-3.5 bg-white text-[#020408] font-display font-black text-xs uppercase tracking-[0.2em] rounded-full hover:bg-primary hover:text-[#020408] hover:shadow-[0_0_25px_rgba(212,168,83,0.35)] transition-all duration-300 text-center cursor-pointer min-w-[170px]"
                   >
                     Let's Talk
-                  </a>
+                  </Link>
                 </MagneticButton>
               </div>
             </div>
