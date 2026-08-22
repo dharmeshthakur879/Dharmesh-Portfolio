@@ -111,7 +111,8 @@ export default function Footer() {
                     {link.isExternal ? (
                       <a
                         href={link.path}
-                        download="Dharmesh_Thakur_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block font-display font-black text-[13px] tracking-wider text-[#D4A853] hover:text-white transition-colors uppercase leading-tight cursor-pointer"
                       >
                         {link.label}
