@@ -129,7 +129,7 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <video
           ref={videoRef}
-          className="w-full h-full object-cover object-center opacity-30 transition-opacity duration-1000"
+          className="w-full h-full object-cover object-center opacity-65 transition-opacity duration-1000"
           muted
           playsInline
           loop
@@ -143,8 +143,8 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
         </video>
       </div>
 
-      {/* Cinematic subtle contrast overlay to ensure 100% text legibility */}
-      <div className="absolute inset-0 bg-[#020408]/60 bg-gradient-to-b from-[#020408]/40 via-transparent to-[#020408]/90 z-[1] pointer-events-none" />
+      {/* Cinematic balanced overlay to ensure both vibrant video visibility and high text legibility */}
+      <div className="absolute inset-0 bg-[#020408]/35 bg-gradient-to-b from-[#020408]/25 via-transparent to-[#020408]/80 z-[1] pointer-events-none" />
 
       {/* Ambient Hardware-Accelerated Radial Gradients (0% GPU Filter Overhead) */}
       <div className="absolute inset-0 pointer-events-none z-[2] bg-[radial-gradient(ellipse_70%_70%_at_70%_30%,rgba(212,168,83,0.1),transparent_70%)]" />
