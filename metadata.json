@@ -1,0 +1,8 @@
+{
+  "name": "Dharmesh Portfolio",
+  "description": "Premium personal portfolio website for Dharmesh, Digital Marketing and AI Automation Professional",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

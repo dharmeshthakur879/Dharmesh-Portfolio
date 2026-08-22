@@ -1,0 +1,7 @@
+[package]
+name = "dharmesh-portfolio"
+version = "1.0.0"
+description = "Dharmesh Portfolio"
+
+[app]
+exec = "node dist/server.cjs"

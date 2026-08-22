@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1784377849668",
+    "blogTitle": "Test Blog Title",
+    "author": "Test Author",
+    "category": "SEO",
+    "publishDate": "2026-07-18",
+    "readingTime": "5 min read",
+    "featuredSummary": "This is a test summary for the blog.",
+    "tags": [],
+    "difficultyLevel": "Beginner",
+    "featuredStatus": "Regular",
+    "pdfFileName": "test.pdf",
+    "pdfFileUrl": "/api/uploads/pdf-1784377849665-144338372.pdf",
+    "pdfFileSize": 17,
+    "views": 0,
+    "downloads": 0,
+    "slug": "test-blog-title",
+    "createdAt": "2026-07-18T12:30:49.668Z",
+    "updatedAt": "2026-07-18T12:30:49.668Z"
+  }
+]
