@@ -16,7 +16,7 @@ const NAV_ITEMS = [
   { label: "Projects", path: "/projects", num: "07" },
   { label: "PP", path: "/pp", num: "08" },
   { label: "Tools", path: "/tools", num: "09" },
-  { label: "Let's Talk", path: "/contact", num: "10" },
+  { label: "Contact", path: "/contact", num: "10" },
 ];
 
 export default function Navbar() {

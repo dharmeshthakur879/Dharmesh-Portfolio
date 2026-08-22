@@ -126,10 +126,10 @@ export default function Contact() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary font-mono text-xs uppercase tracking-widest mb-4">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Let's Talk & Collaborate</span>
+              <span>Get In Touch</span>
             </div>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight">
-              Start a Project / Hire Me
+              Contact Me
             </h2>
             <p className="text-sm sm:text-base text-text-sec max-w-2xl mx-auto mt-4 font-light leading-relaxed">
               Have an idea, paid ads campaign, SEO optimization, or AI automation project in mind? Fill out the brief form below or connect directly.

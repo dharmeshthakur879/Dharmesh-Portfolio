@@ -26,7 +26,7 @@ export default function Footer() {
     { label: "Project Previews (PP)", path: "/pp" },
     { label: "Skills & Stack", path: "/skills" },
     { label: "Download Resume (PDF)", path: "/Dharmesh_Thakur_Resume.pdf", isExternal: true },
-    { label: "Let's Talk & Inquiries", path: "/contact" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   return (
@@ -129,11 +129,11 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 4: Let's Talk */}
+            {/* Column 4: Contact Us */}
             <div className="flex flex-col justify-between">
               <div>
                 <h4 className="font-mono text-xs text-[#8A99AD] uppercase tracking-[0.25em] mb-7 font-bold">
-                  Let's Talk
+                  Contact Us
                 </h4>
                 
                 <div className="space-y-6">
