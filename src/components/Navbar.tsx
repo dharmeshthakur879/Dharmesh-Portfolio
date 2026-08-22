@@ -73,16 +73,16 @@ export default function Navbar() {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="group interactive-hover text-left focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-lg"
+            className="group interactive-hover text-left focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-lg shrink-0"
             aria-label="Dharmesh Portfolio Home"
           >
             <motion.div 
-              className="flex items-center space-x-3.5"
+              className="flex items-center space-x-3 sm:space-x-3.5"
               initial="initial"
               whileHover="hover"
             >
               {/* Premium Interactive Geometric Emblem */}
-              <div className="relative w-10 h-10 flex items-center justify-center">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center shrink-0">
                 {/* Ambient glowing outer pulse ring */}
                 <motion.div
                   className="absolute inset-0 border border-[#D4A853]/20 rounded-lg"
@@ -95,7 +95,7 @@ export default function Navbar() {
 
                 {/* Outer morphing diamond */}
                 <motion.div
-                  className="absolute w-8 h-8 border-2 border-primary flex items-center justify-center bg-transparent"
+                  className="absolute w-7 h-7 sm:w-8 sm:h-8 border-2 border-primary flex items-center justify-center bg-transparent"
                   variants={{
                     initial: { rotate: 45, borderRadius: "2px", scale: 1, borderColor: "rgba(212, 168, 83, 1)" },
                     hover: { 
@@ -126,7 +126,7 @@ export default function Navbar() {
 
                   {/* Central Letter */}
                   <motion.span
-                    className="relative text-primary font-display font-black text-base z-10 block"
+                    className="relative text-primary font-display font-black text-sm sm:text-base z-10 block"
                     variants={{
                       initial: { rotate: -45, scale: 1, color: "rgba(212, 168, 83, 1)" },
                       hover: { 
@@ -154,7 +154,7 @@ export default function Navbar() {
                   {"DHARMESH".split("").map((char, index) => (
                     <motion.span
                       key={index}
-                      className="font-display font-black tracking-[0.03em] text-lg text-white uppercase inline-block"
+                      className="font-display font-black tracking-[0.03em] text-base sm:text-lg text-white uppercase inline-block"
                       variants={{
                         initial: { y: 0, color: "rgba(255, 255, 255, 1)" },
                         hover: { y: -3, color: "rgba(212, 168, 83, 1)" }
@@ -166,12 +166,12 @@ export default function Navbar() {
                   ))}
                 </motion.div>
                 <motion.span
-                  className="font-mono text-[9px] tracking-[0.25em] text-[#F8FAFC]/50 uppercase block -mt-1 font-semibold"
+                  className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] text-[#F8FAFC]/50 uppercase block -mt-0.5 sm:-mt-1 font-semibold whitespace-nowrap"
                   variants={{
-                    initial: { opacity: 0.6, letterSpacing: "0.25em", color: "rgba(248, 252, 250, 0.5)" },
+                    initial: { opacity: 0.6, letterSpacing: "0.22em", color: "rgba(248, 252, 250, 0.5)" },
                     hover: { 
                       opacity: 1, 
-                      letterSpacing: "0.33em", 
+                      letterSpacing: "0.3em", 
                       color: "rgba(212, 168, 83, 1)" 
                     }
                   }}
@@ -183,14 +183,14 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center lg:space-x-4 xl:space-x-8" aria-label="Main Navigation">
+          {/* Desktop Navigation Links (Visible on xl+ screens where 10 items fit comfortably with 0 overlap) */}
+          <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-6" aria-label="Main Navigation">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `relative py-2 text-sm font-mono tracking-widest uppercase transition-colors duration-300 interactive-hover focus:outline-none focus:text-primary ${
+                  `relative py-1.5 text-xs 2xl:text-sm font-mono tracking-wider uppercase transition-colors duration-300 interactive-hover focus:outline-none focus:text-primary whitespace-nowrap ${
                     isActive
                       ? "text-primary font-medium"
                       : "text-text-sec hover:text-white"
@@ -216,21 +216,21 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Call to Action */}
-          <div className="hidden lg:block">
+          <div className="hidden xl:block shrink-0">
             <MagneticButton>
               <Link
                 to="/contact"
-                className="btn-shine-sweep px-5 py-2.5 bg-primary text-[#020408] font-mono text-xs uppercase tracking-widest font-bold rounded-lg transition-transform duration-300 inline-block text-center hover:shadow-[0_0_20px_rgba(212,168,83,0.4)]"
+                className="btn-shine-sweep px-4 2xl:px-5 py-2 2xl:py-2.5 bg-primary text-[#020408] font-mono text-xs uppercase tracking-widest font-bold rounded-lg transition-transform duration-300 inline-block text-center hover:shadow-[0_0_20px_rgba(212,168,83,0.4)] whitespace-nowrap"
               >
-                Let's Talk
+                Contact Me
               </Link>
             </MagneticButton>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Hamburger Menu Button (Visible on screens below xl to guarantee 0 overlap) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative p-2.5 rounded-xl border border-primary/25 bg-[#020408]/80 text-primary hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="xl:hidden relative p-2.5 rounded-xl border border-primary/25 bg-[#020408]/80 text-primary hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 shrink-0"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-nav-drawer"
@@ -243,7 +243,7 @@ export default function Navbar() {
       {/* Mobile Slide-Out Drawer & Backdrop Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 lg:hidden" id="mobile-nav-drawer">
+          <div className="fixed inset-0 z-50 xl:hidden" id="mobile-nav-drawer">
             {/* Dark Backdrop Overlay with Blur */}
             <motion.div
               initial={{ opacity: 0 }}
