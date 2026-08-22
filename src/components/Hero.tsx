@@ -23,11 +23,34 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
     const video = videoRef.current;
     if (!video) return;
 
+    // Explicitly set DOM properties for bulletproof browser autoplay
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.playsInline = true;
+
     const playVideo = () => {
-      if (video.paused) {
-        video.play().catch(() => {
-          // Autoplay policy fallback: muted video will play on next interaction
-        });
+      video.muted = true;
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise
+          .then(() => {
+            setVideoLoaded(true);
+            onVideoLoaded();
+          })
+          .catch(() => {
+            // If autoplay was temporarily held, retry on user interaction
+            const resumeOnInteraction = () => {
+              video.muted = true;
+              video.play();
+              window.removeEventListener("click", resumeOnInteraction);
+              window.removeEventListener("touchstart", resumeOnInteraction);
+              window.removeEventListener("scroll", resumeOnInteraction);
+            };
+            window.addEventListener("click", resumeOnInteraction, { once: true, passive: true });
+            window.addEventListener("touchstart", resumeOnInteraction, { once: true, passive: true });
+            window.addEventListener("scroll", resumeOnInteraction, { once: true, passive: true });
+          });
       }
     };
 
@@ -55,23 +78,12 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
       setVideoLoaded(true);
       onVideoLoaded();
       playVideo();
-    }, 1000);
-
-    // Global listener for first user interaction if browser strictly blocks autoplay
-    const handleFirstInteraction = () => {
-      playVideo();
-      window.removeEventListener("touchstart", handleFirstInteraction);
-      window.removeEventListener("click", handleFirstInteraction);
-    };
-    window.addEventListener("touchstart", handleFirstInteraction, { passive: true });
-    window.addEventListener("click", handleFirstInteraction, { passive: true });
+    }, 500);
 
     return () => {
       clearTimeout(timer);
       video.removeEventListener("loadeddata", handleLoadedData);
       video.removeEventListener("canplay", handleLoadedData);
-      window.removeEventListener("touchstart", handleFirstInteraction);
-      window.removeEventListener("click", handleFirstInteraction);
     };
   }, [onVideoLoaded]);
 
@@ -114,25 +126,29 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
       className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center items-center bg-[#020408] pt-40 pb-20 sm:pt-44 lg:pt-48 lg:pb-32"
     >
       {/* Continuous Autoplay Looping Background Video */}
-      <video
-        ref={videoRef}
-        src="/videos/Hero.mp4"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
-        muted
-        playsInline
-        loop
-        autoPlay
-        preload="auto"
-        disablePictureInPicture
-        disableRemotePlayback
-      />
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <video
+          ref={videoRef}
+          src="/videos/Hero.mp4"
+          className="w-full h-full object-cover object-center"
+          muted
+          playsInline
+          loop
+          autoPlay
+          preload="auto"
+          disablePictureInPicture
+          disableRemotePlayback
+        >
+          <source src="/videos/Hero.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-      {/* Cinematic dark overlay to maintain text contrast */}
-      <div className="absolute inset-0 bg-black/70 z-10" />
+      {/* Cinematic balanced overlay to make the video clearly visible while maintaining high text readability */}
+      <div className="absolute inset-0 bg-[#020408]/40 bg-gradient-to-b from-[#020408]/30 via-black/35 to-[#020408]/90 z-10 pointer-events-none" />
 
       {/* Ambient Hardware-Accelerated Radial Gradients (0% GPU Filter Overhead) */}
-      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_70%_70%_at_70%_30%,rgba(212,168,83,0.14),transparent_70%)]" />
-      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_60%_60%_at_30%_70%,rgba(226,184,101,0.09),transparent_65%)]" />
+      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_70%_70%_at_70%_30%,rgba(212,168,83,0.12),transparent_70%)]" />
+      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_60%_60%_at_30%_70%,rgba(226,184,101,0.08),transparent_65%)]" />
 
       {/* Hero content */}
       <div className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
