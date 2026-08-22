@@ -68,12 +68,12 @@ export default function Navbar() {
             : "py-6 bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-[1536px] mx-auto px-6 sm:px-8 xl:px-12 flex items-center justify-between">
           {/* Logo / Brand Name */}
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="group interactive-hover text-left focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-lg shrink-0"
+            className="group interactive-hover text-left focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-lg shrink-0 mr-4 2xl:mr-8"
             aria-label="Dharmesh Portfolio Home"
           >
             <motion.div 
@@ -183,14 +183,14 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation Links (Visible on xl+ screens where 10 items fit comfortably with 0 overlap) */}
-          <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-6" aria-label="Main Navigation">
+          {/* Desktop Navigation Links (Visible on xl+ screens where 10 items fit comfortably with generous space) */}
+          <nav className="hidden xl:flex items-center space-x-5 2xl:space-x-7" aria-label="Main Navigation">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `relative py-1.5 text-xs 2xl:text-sm font-mono tracking-wider uppercase transition-colors duration-300 interactive-hover focus:outline-none focus:text-primary whitespace-nowrap ${
+                  `relative px-1.5 py-1.5 text-xs 2xl:text-sm font-mono tracking-wider uppercase transition-colors duration-300 interactive-hover focus:outline-none focus:text-primary whitespace-nowrap ${
                     isActive
                       ? "text-primary font-medium"
                       : "text-text-sec hover:text-white"
@@ -216,7 +216,7 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Call to Action */}
-          <div className="hidden xl:block shrink-0">
+          <div className="hidden xl:block shrink-0 ml-4 2xl:ml-8">
             <MagneticButton>
               <Link
                 to="/contact"
@@ -291,7 +291,7 @@ export default function Navbar() {
                   Menu Navigation
                 </div>
 
-                <nav className="flex flex-col space-y-1.5" aria-label="Mobile Site Links">
+                <nav className="flex flex-col space-y-2" aria-label="Mobile Site Links">
                   {NAV_ITEMS.map((item, idx) => (
                     <motion.div
                       key={item.path}
@@ -303,7 +303,7 @@ export default function Navbar() {
                         to={item.path}
                         onClick={() => setIsOpen(false)}
                         className={({ isActive }) =>
-                          `group flex items-center justify-between px-3.5 py-2.5 rounded-xl border transition-all duration-200 ${
+                          `group flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-200 ${
                             isActive
                               ? "bg-primary/10 border-primary/40 text-primary font-semibold shadow-[0_0_15px_rgba(212,168,83,0.15)]"
                               : "border-transparent text-slate-300 hover:text-white hover:bg-white/[0.04] hover:border-white/10"
