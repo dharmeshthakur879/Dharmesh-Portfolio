@@ -143,15 +143,15 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
         </video>
       </div>
 
-      {/* Cinematic balanced overlay to make the video clearly visible while maintaining high text readability */}
-      <div className="absolute inset-0 bg-[#020408]/40 bg-gradient-to-b from-[#020408]/30 via-black/35 to-[#020408]/90 z-10 pointer-events-none" />
+      {/* Cinematic subtle contrast overlay (ensures loop video is prominently visible while text remains high-contrast) */}
+      <div className="absolute inset-0 bg-[#020408]/30 bg-gradient-to-b from-transparent via-[#020408]/20 to-[#020408]/80 z-[1] pointer-events-none" />
 
       {/* Ambient Hardware-Accelerated Radial Gradients (0% GPU Filter Overhead) */}
-      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_70%_70%_at_70%_30%,rgba(212,168,83,0.12),transparent_70%)]" />
-      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_60%_60%_at_30%_70%,rgba(226,184,101,0.08),transparent_65%)]" />
+      <div className="absolute inset-0 pointer-events-none z-[2] bg-[radial-gradient(ellipse_70%_70%_at_70%_30%,rgba(212,168,83,0.1),transparent_70%)]" />
+      <div className="absolute inset-0 pointer-events-none z-[2] bg-[radial-gradient(ellipse_60%_60%_at_30%_70%,rgba(226,184,101,0.06),transparent_65%)]" />
 
       {/* Hero content */}
-      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
         
         {/* Eyebrow */}
         <span

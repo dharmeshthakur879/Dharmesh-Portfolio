@@ -98,7 +98,7 @@
   background-image: url('https://www.transparenttextures.com/patterns/subtle-grey-dots.png');
   opacity: 0.035;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* Fluid gold on black marble theme overlay (Artistic Flair Pattern) */
@@ -115,7 +115,7 @@
   opacity: 0.22;
   mix-blend-mode: screen;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* Floating gold star dust particles in marble veins */
@@ -126,7 +126,7 @@
   opacity: 0.12;
   mix-blend-mode: color-dodge;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 /* Scrollbar styling */
