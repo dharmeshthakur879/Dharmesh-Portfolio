@@ -22,6 +22,22 @@ import MagneticButton from "./MagneticButton";
 
 export default function About() {
   const [imgSrc, setImgSrc] = useState("/Dharmesh_Thakur_New.webp");
+  const [fallbackIndex, setFallbackIndex] = useState(0);
+  const fallbackImages = [
+    "/Dharmesh_Thakur_New.webp",
+    "/dharmesh.webp",
+    "/Dharmesh Thakur New.webp",
+    "/images/dharmesh.webp",
+    "/images/dharmesh.png"
+  ];
+
+  const handleImageError = () => {
+    if (fallbackIndex < fallbackImages.length - 1) {
+      const nextIndex = fallbackIndex + 1;
+      setFallbackIndex(nextIndex);
+      setImgSrc(fallbackImages[nextIndex]);
+    }
+  };
 
   const coreSkills = [
     {
@@ -105,42 +121,37 @@ export default function About() {
           {/* Visual Left */}
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal className="w-full max-w-sm">
-              <div className="relative aspect-[4/5] glass-panel p-2 flex items-end overflow-hidden border-primary/20 group hover:border-primary/40 transition-colors duration-500 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <div className="relative aspect-[4/5] glass-panel p-2 flex items-end overflow-hidden border-primary/30 group hover:border-primary/60 transition-all duration-500 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-[#050B14]">
                 {/* Owner Photo */}
                 <img
                   src={imgSrc}
                   alt="Dharmesh - Digital Marketing & AI Specialist"
-                  className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out filter contrast-110 brightness-95"
+                  className="absolute inset-0 w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                   referrerPolicy="no-referrer"
-                  onError={() => {
-                    if (imgSrc !== "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop") {
-                      setImgSrc("https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop");
-                    }
-                  }}
+                  onError={handleImageError}
                 />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-[#020408]/40 to-transparent opacity-95 group-hover:opacity-85 transition-opacity duration-500" />
+                {/* Subtle Bottom Gradient for Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-[#020408]/60 via-40% to-transparent opacity-90 transition-opacity duration-500" />
                 
                 {/* Text Content Overlay */}
-                <div className="relative z-10 w-full p-6 text-center">
-                  <div className="w-12 h-12 rounded-full border border-primary/40 bg-[#020408]/90 backdrop-blur-md flex items-center justify-center mx-auto mb-3 shadow-[0_0_15px_rgba(212,168,83,0.2)] group-hover:scale-105 group-hover:border-primary transition-all duration-500">
-                    <span className="font-display text-xl font-extrabold text-primary">D</span>
+                <div className="relative z-10 w-full p-5 text-center">
+                  <div className="inline-flex items-center justify-center px-3 py-1 rounded-full border border-primary/40 bg-[#020408]/85 backdrop-blur-md mb-2 shadow-[0_0_15px_rgba(212,168,83,0.2)]">
+                    <span className="font-display text-xs font-bold text-primary uppercase tracking-widest">Dharmesh Thakur</span>
                   </div>
-                  <h3 className="font-display font-bold text-2xl text-white tracking-tight">Dharmesh</h3>
-                  <p className="font-mono text-[11px] text-primary mt-1 uppercase tracking-widest font-semibold">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-white tracking-tight">
                     Digital Marketing & Growth Specialist
-                  </p>
-                  <p className="text-xs text-text-sec mt-2 font-light flex items-center justify-center gap-1.5">
+                  </h3>
+                  <p className="text-xs text-text-sec mt-1.5 font-light flex items-center justify-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-primary" /> Delhi, India • dk3891315@gmail.com
                   </p>
                 </div>
 
                 {/* Corner Accents */}
-                <span className="absolute top-4 left-4 w-4 h-[1px] bg-primary/40" />
-                <span className="absolute top-4 left-4 w-[1px] h-4 bg-primary/40" />
-                <span className="absolute bottom-4 right-4 w-4 h-[1px] bg-primary/40" />
-                <span className="absolute bottom-4 right-4 w-[1px] h-4 bg-primary/40" />
+                <span className="absolute top-4 left-4 w-4 h-[1px] bg-primary/50" />
+                <span className="absolute top-4 left-4 w-[1px] h-4 bg-primary/50" />
+                <span className="absolute bottom-4 right-4 w-4 h-[1px] bg-primary/50" />
+                <span className="absolute bottom-4 right-4 w-[1px] h-4 bg-primary/50" />
               </div>
             </ScrollReveal>
           </div>
