@@ -19,7 +19,6 @@ const Projects = lazy(() => import("./pages/Projects"));
 const ProjectPreviews = lazy(() => import("./pages/ProjectPreviews"));
 const Tools = lazy(() => import("./pages/Tools"));
 const CertificatesPage = lazy(() => import("./pages/CertificatesPage"));
-const Contact = lazy(() => import("./pages/Contact"));
 
 // Register ScrollTrigger globally
 gsap.registerPlugin(ScrollTrigger);
@@ -116,7 +115,6 @@ export default function App() {
               <Route path="/pp" element={<ProjectPreviews />} />
               <Route path="/project-previews" element={<ProjectPreviews />} />
               <Route path="/tools" element={<Tools />} />
-              <Route path="/contact" element={<Contact />} />
             </Route>
           </Routes>
         </Suspense>
