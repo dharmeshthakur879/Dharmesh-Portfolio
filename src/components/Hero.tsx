@@ -129,7 +129,6 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <video
           ref={videoRef}
-          src="/videos/Hero.mp4"
           className="w-full h-full object-cover object-center"
           muted
           playsInline
@@ -139,6 +138,7 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
           disablePictureInPicture
           disableRemotePlayback
         >
+          <source src="/videos/Hero.webm" type="video/webm" />
           <source src="/videos/Hero.mp4" type="video/mp4" />
         </video>
       </div>
