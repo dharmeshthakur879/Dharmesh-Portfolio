@@ -25,7 +25,7 @@ export default function Footer() {
     { label: "Case Studies", path: "/case-studies" },
     { label: "Project Previews (PP)", path: "/pp" },
     { label: "Skills & Stack", path: "/skills" },
-    { label: "Download Resume (PDF)", path: "/Dharmesh_Thakur_Resume.pdf", isExternal: true },
+    { label: "View Resume (PDF)", path: "/Dharmesh_Thakur_Resume.pdf", isExternal: true },
     { label: "Contact Us", path: "/contact" },
   ];
 

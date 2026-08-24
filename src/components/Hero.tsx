@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Mail, ExternalLink } from "lucide-react";
 import MagneticButton from "./MagneticButton";
 import { SOCIAL_PLATFORMS } from "../data/socialPlatforms";
 import { SocialIcon } from "./SocialPlatformsSection";
@@ -215,10 +215,12 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
           <MagneticButton>
             <a
               href="/Dharmesh_Thakur_Resume.pdf"
-              download="Dharmesh_Thakur_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3.5 bg-transparent border border-primary/40 text-primary font-mono text-xs uppercase tracking-widest font-bold rounded-lg hover:bg-primary/5 hover:border-primary transition-all duration-300 pointer-events-auto flex items-center justify-center gap-2"
             >
-              Download Resume
+              <ExternalLink className="w-4 h-4" />
+              <span>View Resume</span>
             </a>
           </MagneticButton>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Menu, X, ArrowUpRight, Mail, Phone, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight, Mail, Phone, Sparkles, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import MagneticButton from "./MagneticButton";
@@ -343,14 +343,27 @@ export default function Navbar() {
               {/* Drawer Footer & Socials */}
               <div className="p-6 border-t border-primary/15 bg-[#020408]/80 space-y-5">
                 {/* CTA Action */}
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="btn-shine-sweep w-full py-3 bg-primary text-[#020408] font-mono text-xs uppercase tracking-widest font-bold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(212,168,83,0.25)] hover:shadow-[0_0_20px_rgba(212,168,83,0.45)] transition-all"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Start a Project / Let's Talk</span>
-                </Link>
+                <div className="flex flex-col gap-2.5">
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className="btn-shine-sweep w-full py-3 bg-primary text-[#020408] font-mono text-xs uppercase tracking-widest font-bold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(212,168,83,0.25)] hover:shadow-[0_0_20px_rgba(212,168,83,0.45)] transition-all"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span>Start a Project / Let's Talk</span>
+                  </Link>
+
+                  <a
+                    href="/Dharmesh_Thakur_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full py-2.5 bg-white/[0.03] border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest font-semibold rounded-xl flex items-center justify-center gap-2 hover:bg-primary/10 hover:border-primary transition-all"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>View Resume (PDF)</span>
+                  </a>
+                </div>
 
                 {/* Direct Contact Info */}
                 <div className="space-y-2 pt-1 font-mono text-xs">

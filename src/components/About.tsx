@@ -15,7 +15,8 @@ import {
   Briefcase, 
   CheckCircle2, 
   ArrowRight,
-  FileText
+  FileText,
+  ExternalLink
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import MagneticButton from "./MagneticButton";
@@ -393,11 +394,12 @@ export default function About() {
               <MagneticButton>
                 <a
                   href="/Dharmesh_Thakur_Resume.pdf"
-                  download="Dharmesh_Thakur_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-3.5 bg-transparent border border-primary/40 text-primary font-mono text-xs uppercase tracking-widest font-bold rounded-lg hover:bg-primary/5 hover:border-primary transition-all duration-300 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
                 >
-                  <FileText className="w-4 h-4" />
-                  <span>Download Resume (PDF)</span>
+                  <ExternalLink className="w-4 h-4" />
+                  <span>View Resume (PDF)</span>
                 </a>
               </MagneticButton>
             </div>
