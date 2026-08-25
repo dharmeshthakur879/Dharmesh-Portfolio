@@ -127,6 +127,9 @@ export default function About() {
                 <img
                   src={imgSrc}
                   alt="Dharmesh - Digital Marketing & AI Specialist"
+                  width="400"
+                  height="500"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                   referrerPolicy="no-referrer"
                   onError={handleImageError}

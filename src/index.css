@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -11,23 +10,46 @@
   --color-text-sec: #A8B3C4;
   --color-border-gold: rgba(212, 168, 83, 0.22);
   
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Poppins", system-ui, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
-/* Custom styles for luxury agency feel */
+/* Base styles and mobile typography optimizations */
 @layer base {
-  html, body {
+  html {
     background-color: #020408;
     color: #F8FAFC;
     font-family: var(--font-sans);
     overflow-x: hidden;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23D4A853' stroke='%23020408' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M4.5 3V17.5L8.5 13.5L13.5 18.5L15.5 16.5L10.5 11.5L15 11.5L4.5 3Z'/%3E%3C/svg%3E") 4 3, auto;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  a, button, select, input, textarea, [role="button"], [type="button"], [type="submit"], .cursor-pointer {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23D4A853' stroke='%23020408' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M14 11h-1V5.5a1.5 1.5 0 0 0-3 0V14l-2.5-2.5a1 1 0 0 0-1.4 1.4l5.4 5.4a4 4 0 0 0 2.8 1.2h3.2a4 4 0 0 0 4-4V12.5a1.5 1.5 0 0 0-3 0v-1h-1v-1a1.5 1.5 0 0 0-3 0v1z'/%3E%3C/svg%3E") 8 3, pointer !important;
+  body {
+    background-color: #020408;
+    color: #F8FAFC;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Custom cursor only on desktop devices with hover & mouse pointer */
+  @media (hover: hover) and (pointer: fine) {
+    html, body {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23D4A853' stroke='%23020408' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M4.5 3V17.5L8.5 13.5L13.5 18.5L15.5 16.5L10.5 11.5L15 11.5L4.5 3Z'/%3E%3C/svg%3E") 4 3, auto;
+    }
+
+    a, button, select, input, textarea, [role="button"], [type="button"], [type="submit"], .cursor-pointer {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23D4A853' stroke='%23020408' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M14 11h-1V5.5a1.5 1.5 0 0 0-3 0V14l-2.5-2.5a1 1 0 0 0-1.4 1.4l5.4 5.4a4 4 0 0 0 2.8 1.2h3.2a4 4 0 0 0 4-4V12.5a1.5 1.5 0 0 0-3 0v-1h-1v-1a1.5 1.5 0 0 0-3 0v1z'/%3E%3C/svg%3E") 8 3, pointer !important;
+    }
+  }
+
+  /* Prevent iOS zoom on inputs by ensuring >= 16px font size on mobile */
+  input, textarea, select {
+    font-size: 16px;
   }
 }
 
@@ -37,18 +59,24 @@
   border: 1px solid rgba(212, 168, 83, 0.2);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-radius: 24px;
+  border-radius: 20px;
   box-shadow: 0 10px 30px -10px rgba(2, 4, 8, 0.85);
 }
 
+@media (min-width: 640px) {
+  .glass-panel {
+    border-radius: 24px;
+  }
+}
+
 .glass-panel-hover {
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel-hover:hover {
-  transform: translateY(-8px) scale(1.015);
+  transform: translateY(-6px) scale(1.01);
   border-color: rgba(212, 168, 83, 0.45);
-  box-shadow: 0 15px 40px -10px rgba(212, 168, 83, 0.12);
+  box-shadow: 0 15px 40px -10px rgba(212, 168, 83, 0.15);
 }
 
 /* Shine effect on hover for primary buttons */
@@ -85,35 +113,31 @@
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.025;
+  opacity: 0.02;
   z-index: 9999;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Subtle grey-dots background pattern from Artistic Flair */
+/* Subtle grey-dots background pattern */
 .dots-overlay {
   position: fixed;
   inset: 0;
-  background-image: url('https://www.transparenttextures.com/patterns/subtle-grey-dots.png');
-  opacity: 0.035;
+  background-image: radial-gradient(rgba(212, 168, 83, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Fluid gold on black marble theme overlay (Artistic Flair Pattern) */
+/* Fluid gold on black marble theme overlay */
 .marble-gold-overlay {
   position: fixed;
   inset: 0;
   background-image: 
-    radial-gradient(circle at 15% 25%, rgba(212, 168, 83, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(168, 120, 42, 0.12) 0%, transparent 45%),
-    url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1920');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.22;
-  mix-blend-mode: screen;
+    radial-gradient(circle at 15% 25%, rgba(212, 168, 83, 0.09) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(168, 120, 42, 0.09) 0%, transparent 50%);
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -122,16 +146,16 @@
 .gold-dust-overlay {
   position: fixed;
   inset: 0;
-  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-  opacity: 0.12;
-  mix-blend-mode: color-dodge;
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 168, 83, 0.06) 0%, transparent 60%);
+  opacity: 0.5;
   pointer-events: none;
   z-index: 0;
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #020408;
@@ -143,8 +167,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(212, 168, 83, 0.7);
 }
-
-
 
 @keyframes gold-glow-pulse {
   0% {

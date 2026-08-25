@@ -123,7 +123,7 @@ export default function Hero({ onVideoLoaded }: HeroProps) {
     <div
       ref={containerRef}
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center items-center bg-[#020408] pt-40 pb-20 sm:pt-44 lg:pt-48 lg:pb-32"
+      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center items-center bg-[#020408] pt-28 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-32"
     >
       {/* Continuous Autoplay Looping Background Video */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">

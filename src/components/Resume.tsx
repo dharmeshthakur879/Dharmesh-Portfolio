@@ -4,10 +4,10 @@ import { FileText, ExternalLink, Download, Sparkles, ChevronLeft, ChevronRight, 
 import MagneticButton from "./MagneticButton";
 
 const RESUME_PAGES = [
-  { page: 1, title: "Summary & Core Experience", image: "/images/resume-page-1.png" },
-  { page: 2, title: "Case Studies & Metrics", image: "/images/resume-page-2.png" },
-  { page: 3, title: "Web Dev & Tech Stack", image: "/images/resume-page-3.png" },
-  { page: 4, title: "Training, Profiles & Skills", image: "/images/resume-page-4.png" },
+  { page: 1, title: "Summary & Core Experience", webp: "/images/resume-page-1.webp", png: "/images/resume-page-1.png" },
+  { page: 2, title: "Case Studies & Metrics", webp: "/images/resume-page-2.webp", png: "/images/resume-page-2.png" },
+  { page: 3, title: "Web Dev & Tech Stack", webp: "/images/resume-page-3.webp", png: "/images/resume-page-3.png" },
+  { page: 4, title: "Training, Profiles & Skills", webp: "/images/resume-page-4.webp", png: "/images/resume-page-4.png" },
 ];
 
 export default function Resume() {
@@ -133,11 +133,17 @@ export default function Resume() {
                     className="relative rounded-lg overflow-hidden border border-border-gold/30 bg-white group cursor-pointer shadow-inner"
                     onClick={() => setShowFullPreview(true)}
                   >
-                    <img
-                      src={RESUME_PAGES[currentPage - 1].image}
-                      alt={`Dharmesh Thakur Resume - Page ${currentPage}`}
-                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
-                    />
+                    <picture>
+                      <source srcSet={RESUME_PAGES[currentPage - 1].webp} type="image/webp" />
+                      <img
+                        src={RESUME_PAGES[currentPage - 1].png}
+                        alt={`Dharmesh Thakur Resume - Page ${currentPage}`}
+                        width="1241"
+                        height="1755"
+                        loading="lazy"
+                        className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+                      />
+                    </picture>
                     
                     {/* Hover overlay hint */}
                     <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-white font-mono text-xs uppercase tracking-wider backdrop-blur-[1px]">
@@ -237,12 +243,17 @@ export default function Resume() {
               </div>
             </div>
             
-            <div className="overflow-auto max-h-[82vh] rounded-lg border border-border-gold/20 flex justify-center bg-[#020408]">
-              <img
-                src={RESUME_PAGES[currentPage - 1].image}
-                alt={`Dharmesh Thakur Resume - Page ${currentPage}`}
-                className="w-full max-w-3xl h-auto object-contain rounded-lg shadow-md"
-              />
+            <div className="overflow-auto max-h-[82vh] rounded-lg border border-border-gold/20 flex justify-center bg-[#020408] p-2">
+              <picture className="w-full flex justify-center">
+                <source srcSet={RESUME_PAGES[currentPage - 1].webp} type="image/webp" />
+                <img
+                  src={RESUME_PAGES[currentPage - 1].png}
+                  alt={`Dharmesh Thakur Resume - Page ${currentPage}`}
+                  width="1241"
+                  height="1755"
+                  className="w-full max-w-3xl h-auto object-contain rounded-lg shadow-md"
+                />
+              </picture>
             </div>
           </div>
         </div>
